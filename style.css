@@ -1,0 +1,43 @@
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes loadingBar {
+  0% { width: 0; opacity: 0.2; }
+  50% { width: 100px; opacity: 1; }
+  100% { width: 0; opacity: 0.2; }
+}
+
+.animate-loading-bar {
+  animation: loadingBar 2s infinite ease-in-out;
+}
+
+.balance-glow {
+  text-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1s infinite;
+}
