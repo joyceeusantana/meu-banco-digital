@@ -10,6 +10,11 @@ body {
   display: none !important;
 }
 
+/* Animação de entrada da notificação */
+#notification.show {
+  top: 20px !important;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
