@@ -72,7 +72,7 @@ function startBankCounter() {
     gainEl.textContent = `+${formatBRL(gained)} desde que você abriu`;
 
     // Verifica marcos de 1000 (vai disparar todo segundo agora)
-    if (balance - lastMilestone >= 1000) {
+    if (balance - lastMilestone >= 1000000) {
       lastMilestone += 1000000;
       showNotification(`Parabéns! Você fez + ${formatBRL(1000000)}`);
     }
