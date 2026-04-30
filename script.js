@@ -17,7 +17,7 @@ const notifMessage = document.getElementById('notif-message');
 // Variáveis de Saldo
 let balance = 0.00;
 let gained = 0;
-let lastMilestone = 0; // Rastreia o último marco de 1000 reais
+let lastMilestone = 0; 
 const balanceEl = document.getElementById('balance');
 const gainEl = document.getElementById('gain');
 
@@ -25,18 +25,15 @@ function formatBRL(v) {
   return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// Função para exibir a notificação personalizada
 function showNotification(text) {
   notifMessage.textContent = text;
   notification.classList.add('show');
 
-  // Remove a notificação após 4 segundos
   setTimeout(() => {
     notification.classList.remove('show');
   }, 4000);
 }
 
-// Evento de Clique para Cadastro
 btnRegister.addEventListener('click', () => {
   const name = userInput.value.trim();
 
@@ -64,17 +61,17 @@ btnRegister.addEventListener('click', () => {
   }
 });
 
-// Função que faz o dinheiro subir e verifica marcos de 1000 reais
+// Função atualizada para R$ 1.000,00 por segundo
 function startBankCounter() {
   setInterval(() => {
-    const add = 1.00;
+    const add = 1000.00; // ALTERADO: Agora adiciona 1000 por segundo
     balance += add;
     gained += add;
     
     balanceEl.textContent = formatBRL(balance);
     gainEl.textContent = `+${formatBRL(gained)} desde que você abriu`;
 
-    // Verifica se atingiu um novo marco de R$ 1000,00
+    // Verifica marcos de 1000 (vai disparar todo segundo agora)
     if (balance - lastMilestone >= 1000) {
       lastMilestone += 1000;
       showNotification(`Parabéns! Você fez + ${formatBRL(1000)}`);
