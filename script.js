@@ -61,20 +61,20 @@ btnRegister.addEventListener('click', () => {
   }
 });
 
-// Função atualizada para R$ 1.000,00 por segundo
+// Função atualizada para marcos de 1 milhão
 function startBankCounter() {
   setInterval(() => {
-    const add = 1000.00; // ALTERADO: Agora adiciona 1000 por segundo
+    const add = 1000.00; // Mantém o ganho de 1000 por segundo
     balance += add;
     gained += add;
     
     balanceEl.textContent = formatBRL(balance);
     gainEl.textContent = `+${formatBRL(gained)} desde que você abriu`;
 
-    // Verifica marcos de 1000 (vai disparar todo segundo agora)
+    // Verifica se atingiu um novo marco de R$ 1.000.000,00
     if (balance - lastMilestone >= 1000000) {
       lastMilestone += 1000000;
-      showNotification(`Parabéns! Você fez + ${formatBRL(1000000)}`);
+      showNotification(`Parabéns! Você fez mais um milhão!`);
     }
     
   }, 1000);
